@@ -5,4 +5,4 @@ Reimplementation of [https://github.com/lucasmreis/simpleStateApp](https://githu
 
 Uses Baobab library.
 
-Live demo here: [http://lucasmreis.github.io/simpleStateApp/](http://lucasmreis.github.io/simpleStateApp/)
+Live demo here: [http://lucasmreis.github.io/baobabStateApp/](http://lucasmreis.github.io/baobabStateApp/)
