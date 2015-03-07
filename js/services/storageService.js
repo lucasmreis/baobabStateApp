@@ -6,9 +6,9 @@ angular.module('simpleStateApp').factory('StorageService', function() {
     return items;
   });
 
-  var load = function(prop) {
+  var load = function(prop, defaultValue) {
     var items = JSON.parse(window.localStorage.getItem('simple-app-' + prop));
-    return items ? items : [];
+    return items ? items : defaultValue;
   };
 
   return {
