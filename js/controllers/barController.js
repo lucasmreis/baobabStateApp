@@ -1,15 +1,16 @@
-angular.module('simpleStateApp').controller('BarCtrl', function(AppStateService, PointfreeBaobab) {
+angular.module('simpleStateApp').controller('BarCtrl', function(AppState, PointfreeBaobab) {
   var compose = R.compose;
   var get = R.get;
   var not = R.not;
   var contains = R.contains;
+  var always = R.always;
   var push = PointfreeBaobab.push;
   var edit = PointfreeBaobab.edit;
 
-  var foosCursor = AppStateService.select('foos');
-  var barsCursor = AppStateService.select('bars');
+  var foosCursor = AppState.select('foos');
+  var barsCursor = AppState.select('bars');
 
-  var state = AppStateService.get();
+  var state = AppState.get();
 
   var form = {
     newBar: ''
@@ -32,13 +33,14 @@ angular.module('simpleStateApp').controller('BarCtrl', function(AppStateService,
   var clearState = function() {
     compose(
       edit(barsCursor),
+      always([]),
       edit(foosCursor)
     )([]);
   };
 
   var undo = function() { 
-    if (AppStateService.hasHistory()) { 
-      AppStateService.undo(); 
+    if (AppState.hasHistory()) { 
+      AppState.undo(); 
     }
   };
 

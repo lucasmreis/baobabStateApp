@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "baobab": "~0.3.2"
+    "baobab": "~0.3.2",
+    "baobab-angular": "~0.1.0"
   }
 }

@@ -1,9 +1,9 @@
-angular.module('simpleStateApp').controller('FooCtrl', function(AppStateService, PointfreeBaobab) {
+angular.module('simpleStateApp').controller('FooCtrl', function(AppState, PointfreeBaobab) {
   var compose = R.compose;
-  var get = R.get;
+  var prop = R.prop;
   var push = PointfreeBaobab.push;
 
-  var foosCursor = AppStateService.select('foos');
+  var foosCursor = AppState.select('foos');
 
   var state = { 
     foos: foosCursor.get()
@@ -18,7 +18,7 @@ angular.module('simpleStateApp').controller('FooCtrl', function(AppStateService,
 
   var addFoo = compose(
     push(foosCursor),
-    get('newFoo'));
+    prop('newFoo'));
 
   this.state = state;
   this.form = form;

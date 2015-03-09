@@ -1,6 +1,6 @@
-angular.module('simpleStateApp', []).run(function(StorageService, AppStateService) {
-    AppStateService.on('update', 
+angular.module('simpleStateApp', []).run(function(StorageService, AppState) {
+    AppState.on('update', 
       function() { 
-        StorageService.save('baobab', AppStateService.get()); 
+        StorageService.save('baobab', AppState.get()); 
       });
   });
