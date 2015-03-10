@@ -1,4 +1,4 @@
-angular.module('simpleStateApp').factory('AppState', function($rootScope, $timeout, StorageService) {
+angular.module('simpleStateApp').factory('AppState', function($rootScope, StorageService) {
   var initial = {
     foos: [],
     bars: []
@@ -11,9 +11,10 @@ angular.module('simpleStateApp').factory('AppState', function($rootScope, $timeo
     }
   );
 
-  state.on('update', function() {
-    // because of error -> Error: [$rootScope:inprog] $apply already in progress
-    $timeout(function() { $rootScope.$apply(); }, 0, false);
+  state.on('update', function () {
+    setTimeout(function () {
+      $rootScope.$apply();
+    }, 0);
   });
 
   return state;
